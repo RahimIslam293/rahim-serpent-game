@@ -28,6 +28,7 @@ class Scoreboard(Turtle):
         self.write("Game Over.", align=FONT_ALIGNMENT, font=(FONT, FONT_SIZE, FONT_TYPE))
 
 
+
     def getHighScore(self):
         try:
             with open("high_score.txt", "r") as file:
@@ -45,4 +46,11 @@ class Scoreboard(Turtle):
             self.highscore = self.score
             with open("high_score.txt", "w") as file:
                 file.write(str(self.highscore))
+
+    def reset(self):
+        self.write_high_score()
+        self.score = 0
+        self.getHighScore()
+        self.clear()
+        self.display_score()
 
